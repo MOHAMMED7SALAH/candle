@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
-  var height;
+  double height;
 
-  var width;
+  double width;
 
   String myText;
 
