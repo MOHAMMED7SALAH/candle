@@ -1,4 +1,5 @@
-import 'package:candle/views/bus_timming.dart';
+import 'package:candle/views/club.dart';
+import 'package:candle/views/home.dart';
 import 'package:flutter/material.dart';
 
 
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: BusTimming(),
+    return  const MaterialApp(
+      home: Home(),
     );
   }
 }

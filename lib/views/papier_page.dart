@@ -1,16 +1,17 @@
 import 'package:candle/utils/widgets/widget/mydrawer.dart';
 import 'package:candle/views/bus_timming.dart';
+import 'package:candle/views/papier.dart';
 import 'package:flutter/material.dart';
 
-class BusPage extends StatefulWidget {
-  final Buses bus;
-  const BusPage({Key? key, required this.bus}) : super(key: key);
+class PapierPage extends StatefulWidget {
+  final Papier myPapier;
+  const PapierPage({Key? key, required this.myPapier}) : super(key: key);
 
   @override
-  State<BusPage> createState() => _BusPageState();
+  State<PapierPage> createState() => _PapierPageState();
 }
 
-class _BusPageState extends State<BusPage> {
+class _PapierPageState extends State<PapierPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -92,7 +93,7 @@ class _BusPageState extends State<BusPage> {
             height: height * 0.6,
             width: width * .8,
             decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(widget.bus.busImage))),
+                image: DecorationImage(image: AssetImage(widget.myPapier.papierImage))),
           )
         ],
       ),

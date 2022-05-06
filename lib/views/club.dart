@@ -1,16 +1,11 @@
 import 'package:candle/utils/widgets/widget/mydrawer.dart';
-import 'package:candle/views/bus_timming.dart';
 import 'package:flutter/material.dart';
 
-class BusPage extends StatefulWidget {
-  final Buses bus;
-  const BusPage({Key? key, required this.bus}) : super(key: key);
+class Club extends StatelessWidget {
+  
+  Club({Key? key, }) : super(key: key);
 
-  @override
-  State<BusPage> createState() => _BusPageState();
-}
-
-class _BusPageState extends State<BusPage> {
+ 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -59,8 +54,10 @@ class _BusPageState extends State<BusPage> {
                               icon: const Icon(
                                 Icons.menu,
                                 size: 30,
-                                color: Colors.white,
-                              ))
+                                color: Colors.white),
+                              )
+                              
+            
                         ]),
                   ),
                 ),
@@ -88,14 +85,23 @@ class _BusPageState extends State<BusPage> {
           const SizedBox(
             height: 50,
           ),
-          Container(
-            height: height * 0.6,
-            width: width * .8,
-            decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(widget.bus.busImage))),
-          )
+          Column(
+              children: [
+                Container(
+                  height: height * .6,
+                  width: width * .8,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/club.png'))),
+                ),
+                
+                
+              ],
+            )
         ],
       ),
     );
   }
 }
+
+

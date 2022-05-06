@@ -1,52 +1,41 @@
 import 'package:candle/utils/widgets/mybutton.dart';
 import 'package:candle/utils/widgets/widget/mydrawer.dart';
-import 'package:candle/views/bus_page.dart';
+import 'package:candle/views/papier_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
-class BusTimming extends StatefulWidget {
-  const BusTimming({Key? key}) : super(key: key);
+class MyPapier extends StatefulWidget {
+  const MyPapier({Key? key}) : super(key: key);
 
   @override
-  State<BusTimming> createState() => _BusTimmingState();
+  State<MyPapier> createState() => _MyPapierState();
 }
 
-class _BusTimmingState extends State<BusTimming> {
-  List<Buses> buses = [
-    Buses(
-        busName: 'توقيت ومسار حافلة سرسوف الفيراي ',
-        busImage: 'assets/sarsof15.png'),
-    Buses(
-        busName: 'توقيت ومسار حافلة سرسوف  02',
-        busImage: 'assets/sersof02.png'),
-    Buses(
-        busName: 'توقيت ومسار حافلة سرسوف  08',
-        busImage: 'assets/sersof08.png'),
-    Buses(
-        busName: 'توقيت ومسار حافلة تبركات 01',
-        busImage: 'assets/tabrakat01.png'),
-    Buses(
-        busName: 'توقيت ومسار حافلة تبركات 10',
-        busImage: 'assets/tabrakat10.png'),
-    Buses(
-        busName: 'توقيت ومسار حافلة أدريان 09',
-        busImage: 'assets/adrian09.png'),
-    Buses(
-        busName: 'توقيت ومسار حافلة أدريان 12',
-        busImage: 'assets/adrian12.png'),
-    Buses(
-        busName: 'توقيت ومسار حافلة قطع الواد 03',
-        busImage: 'assets/wad03.png'),
-    Buses(
-        busName: 'توقيت ومسار حافلة قطع الواد 06',
-        busImage: 'assets/wad06.png'),
-    Buses(
-        busName: 'توقيت ومسار حافلة قطع الواد 07',
-        busImage: 'assets/wad07.png'),
-    Buses(
-        busName: 'توقيت ومسار حافلة قطع الواد 11',
-        busImage: 'assets/wad11.png'),
-    Buses(busName: 'توقيت ومسار حافلة تهقارت', busImage: 'assets/tahagart.png'),
+class _MyPapierState extends State<MyPapier> {
+  List<Papier> papier = [
+    Papier(
+        papierName: 'ملف المنحة',
+        papierImage: 'assets/bourse.png'),
+    Papier(
+        papierName: 
+        'ملف الإيواء (الإقامة الجامعية)',
+        papierImage: 'assets/ikama.png'),
+    Papier(
+        papierName: 
+        'ملف النقل الجامعي',
+        papierImage: 'assets/trans.png'),
+    Papier(
+        papierName: 
+        'ملف فتح حساب بريدي',
+        papierImage: 'assets/ccp.png'),
+    Papier(
+        papierName: 
+        'ملف التسجيلات الجامعية',
+        papierImage: 'assets/inscription.png'),
+    Papier(
+        papierName: 
+        'ملف التحويلات الجامعية',
+        papierImage: 'assets/tahwilat.png'),
+    
   ];
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -61,24 +50,15 @@ class _BusTimmingState extends State<BusTimming> {
         children: [
           Stack(
             children: [
-              ClipPath(
-            clipper: WaveClipperTwo(flip: true, ),
-            child: Container(
-              height: 600,
-              width: 500  ,
-              color: Colors.pink,
-              child: Center(child: Text("SideCutClipper()")),
-            ),
-          ),
-              // Container(
-              //     height: height * .2,
-              //     width: width,
-              //     decoration: const BoxDecoration(
-              //       image: DecorationImage(
-              //         image: AssetImage('assets/shape.png'),
-              //         fit: BoxFit.fill,
-              //       ),
-              //     )),
+              Container(
+                  height: height * .2,
+                  width: width,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/shape.png'),
+                      fit: BoxFit.fill,
+                    ),
+                  )),
               Positioned(
                 top: height * .05,
                 child: SizedBox(
@@ -139,19 +119,19 @@ class _BusTimmingState extends State<BusTimming> {
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
             // shrinkWrap: true,
-            itemCount: buses.length,
+            itemCount: papier.length,
             itemBuilder: (context, index) {
-              final bus = buses[index];
+              final myPapier = papier[index];
               return Column(
                 children: [
                   MyButton(
                     myFunc: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => BusPage(bus: bus)));
+                          builder: (context) => PapierPage(myPapier: myPapier)));
                     },
                     height: 50.0,
                     width: (width * .8),
-                    myText: bus.busName,
+                    myText: myPapier.papierName,
                   ),
                   const SizedBox(
                     height: 20,
@@ -168,9 +148,9 @@ class _BusTimmingState extends State<BusTimming> {
   }
 }
 
-class Buses {
-  final String busName;
-  final String busImage;
+class Papier {
+  final String papierName;
+  final String papierImage;
 
-  Buses({required this.busName, required this.busImage});
+  Papier({required this.papierName, required this.papierImage});
 }

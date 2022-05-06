@@ -1,16 +1,13 @@
+import 'package:candle/utils/widgets/mybutton.dart';
 import 'package:candle/utils/widgets/widget/mydrawer.dart';
-import 'package:candle/views/bus_timming.dart';
+import 'package:candle/views/club.dart';
 import 'package:flutter/material.dart';
 
-class BusPage extends StatefulWidget {
-  final Buses bus;
-  const BusPage({Key? key, required this.bus}) : super(key: key);
+class UnivClubs extends StatelessWidget {
+  
+  UnivClubs({Key? key, }) : super(key: key);
 
-  @override
-  State<BusPage> createState() => _BusPageState();
-}
-
-class _BusPageState extends State<BusPage> {
+ 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -59,8 +56,10 @@ class _BusPageState extends State<BusPage> {
                               icon: const Icon(
                                 Icons.menu,
                                 size: 30,
-                                color: Colors.white,
-                              ))
+                                color: Colors.white),
+                              )
+                              
+            
                         ]),
                   ),
                 ),
@@ -88,14 +87,17 @@ class _BusPageState extends State<BusPage> {
           const SizedBox(
             height: 50,
           ),
-          Container(
-            height: height * 0.6,
-            width: width * .8,
-            decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(widget.bus.busImage))),
-          )
+          MyButton(height: height * .09, width: width * .8, myText: 'نادي البرمجة والتصميم الجرافيكي', myFunc: (){
+
+             Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) =>  Club()),
+  );
+          })
         ],
       ),
     );
   }
 }
+
+

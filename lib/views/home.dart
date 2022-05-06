@@ -1,4 +1,10 @@
 import 'package:candle/utils/widgets/mybutton.dart';
+import 'package:candle/utils/widgets/widget/mydrawer.dart';
+import 'package:candle/views/bus_timming.dart';
+import 'package:candle/views/demands.dart';
+import 'package:candle/views/papier.dart';
+import 'package:candle/views/univ.clubs.dart';
+import 'package:candle/views/websites_university.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -16,40 +22,7 @@ class _HomeState extends State<Home> {
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
       key: _scaffoldKey,
-      endDrawer:  Drawer(
-         child: ListView(  
-    padding: const EdgeInsets.all(20),  
-    children: [  
-      const DrawerHeader(  
-        child: Center(
-          child: Text('Candle', style: TextStyle(
-
-  fontSize: 50,
-  fontWeight: FontWeight.bold,
-  color: Color(0xff007BA4),
-),),
-        ),  
-        decoration: BoxDecoration(  
-          // color: Colors.blue,  
-        ),  
-      ),  
-      ListTile(  
-        title: const Text('الرئيسية'),
-        leading: const Icon(Icons.home_rounded),  
-        onTap: () {  
-            
-        },  
-      ),  
-      ListTile(  
-        title: const Text('حولنا'),
-              leading: const Icon(Icons.info_outline) ,   
-        onTap: () {  
-           
-        },  
-      ),  
-    ],  
-  ),  
-)  ,
+      endDrawer: const MyDrawer(),
       
       body: Column(
         children: [
@@ -103,7 +76,12 @@ class _HomeState extends State<Home> {
             height: 50,
           ),
           MyButton(
-              myFunc: () {},
+              myFunc: () {
+                Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) =>  const BusTimming()),
+  );
+              },
               height: 50.0,
               width: (width * .8),
               myText: 'توقيت الحافلات'),
@@ -111,15 +89,25 @@ class _HomeState extends State<Home> {
             height: 20,
           ),
           MyButton(
-              myFunc: () {},
+              myFunc: () {
+                Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) =>    DemandesSimple()),
+  );
+              },
               height: 50.0,
               width: (width * .8),
-              myText: 'نمتذج الطلبات الخطية'),
+              myText: 'نماذج الطلبات الخطية'),
           const SizedBox(
             height: 20,
           ),
           MyButton(
-              myFunc: () {},
+              myFunc: () {
+                Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) =>  const MyPapier()),
+  );
+              },
               height: 50.0,
               width: (width * .8),
               myText: 'وثائق ادارية'),
@@ -127,7 +115,12 @@ class _HomeState extends State<Home> {
             height: 20,
           ),
           MyButton(
-              myFunc: () {},
+              myFunc: () {
+                Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) =>  WebSites()),
+  );
+              },
               height: 50.0,
               width: (width * .8),
               myText: 'روابط المواقع الخاصة بالجامعة'),
@@ -143,7 +136,12 @@ class _HomeState extends State<Home> {
             height: 20,
           ),
           MyButton(
-              myFunc: () {},
+              myFunc: () {
+                Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) =>  UnivClubs()),
+  );
+              },
               height: 50.0,
               width: width * .8,
               myText: 'نوادي الجامعة'),
