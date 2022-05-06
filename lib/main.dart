@@ -1,5 +1,4 @@
-
-import 'package:candle/views/home.dart';
+import 'package:candle/views/bus_timming.dart';
 import 'package:flutter/material.dart';
 
 
@@ -8,14 +7,16 @@ void main() => runApp(
   //   // enabled: !kReleaseMode,
   //   builder: (context) => MyApp(), // Wrap your app
   // ),
-  MyApp(),
+  const MyApp(),
 );
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Home(),
+      home: BusTimming(),
     );
   }
 }
