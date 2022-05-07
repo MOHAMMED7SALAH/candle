@@ -3,6 +3,12 @@ import 'package:candle/utils/widgets/widget/mydrawer.dart';
 import 'package:candle/views/papier_page.dart';
 import 'package:flutter/material.dart';
 
+
+// Positioned(
+//             height: size.height * .2,
+//             width: size.width,
+//             child: Image.asset('assets/shape.png', fit: BoxFit.fill,),
+//           ),
 class MyPapier extends StatefulWidget {
   const MyPapier({Key? key}) : super(key: key);
 
@@ -41,29 +47,64 @@ class _MyPapierState extends State<MyPapier> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       key: _scaffoldKey,
       endDrawer: const MyDrawer(),
-      body: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                  height: height * .2,
-                  width: width,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/shape.png'),
-                      fit: BoxFit.fill,
+      body: Container(
+        height: size.height,
+        width: size.width,
+        child: Stack(
+          
+          children: [
+            Positioned(
+              bottom: 0.0,
+              child: SizedBox(
+                height: size.height * .9,
+                width: size.width,
+                child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    final myPapier = papier[index];
+                    if (index == 0 || index == 1 || index == 2) {
+                      return const SizedBox(
+                        height: 30,
+                      );
+                    } else {
+                      return Column(
+                  children: [
+                    MyButton(
+                      myFunc: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => PapierPage(myPapier: myPapier)));
+                      },
+                      height: 50.0,
+                      width: (size.width * .8),
+                      myText: myPapier.papierName,
                     ),
-                  )),
-              Positioned(
-                top: height * .05,
+                    const SizedBox(
+                      height: 20,
+                    )
+                  ],
+                );
+                    }
+                  },
+                  itemCount: papier.length,
+                ),
+              ),
+            ),
+            Positioned(
+              height: size.height * .2,
+              width: size.width,
+              child: Image.asset('assets/shape.png', fit: BoxFit.fill,)
+              ,
+              
+            ),
+            Positioned(
+                top: size.height * .05,
                 child: SizedBox(
-                  height: height * .1,
-                  width: width,
+                  height: size.height * .1,
+                  width: size.width,
                   child: Padding(
                     padding: const EdgeInsets.only(right: 50, left: 50),
                     child: Row(
@@ -92,57 +133,31 @@ class _MyPapierState extends State<MyPapier> {
                   ),
                 ),
               ),
-              Positioned(
-                top: height * .15,
-                right: width * .15,
-                child: Container(
-                  height: 35,
-                  width: 35,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(50)),
-                  child: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
-                      )),
+            Positioned(
+                top: size.height * .175,
+                right: size.width * .14,
+                child: InkWell(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  borderRadius: BorderRadius.circular(50),
+                  child: Container(
+                    height: 35,
+                    width: 35,
+                    decoration: BoxDecoration(
+                       
+                        border: Border.all(color: Colors.blueAccent),
+                        color: Color.fromARGB(255, 240, 234, 234),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: 
+                         Icon(
+                          Icons.arrow_forward_ios,
+                        ),
+                  ),
                 ),
               ),
-            ],
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          Expanded(
-              child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-            // shrinkWrap: true,
-            itemCount: papier.length,
-            itemBuilder: (context, index) {
-              final myPapier = papier[index];
-              return Column(
-                children: [
-                  MyButton(
-                    myFunc: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => PapierPage(myPapier: myPapier)));
-                    },
-                    height: 50.0,
-                    width: (width * .8),
-                    myText: myPapier.papierName,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  )
-                ],
-              );
-            },
-          )
-              )
-          
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -154,3 +169,33 @@ class Papier {
 
   Papier({required this.papierName, required this.papierImage});
 }
+
+
+
+
+
+
+// ListView.builder(
+//                 physics: const BouncingScrollPhysics(),
+//             // shrinkWrap: true,
+//             itemCount: papier.length,
+//             itemBuilder: (context, index) {
+//               final myPapier = papier[index];
+//               return Column(
+//                 children: [
+//                   MyButton(
+//                     myFunc: () {
+//                       Navigator.of(context).push(MaterialPageRoute(
+//                           builder: (context) => PapierPage(myPapier: myPapier)));
+//                     },
+//                     height: 50.0,
+//                     width: (width * .8),
+//                     myText: myPapier.papierName,
+//                   ),
+//                   const SizedBox(
+//                     height: 20,
+//                   )
+//                 ],
+//               );
+//             },
+//           )

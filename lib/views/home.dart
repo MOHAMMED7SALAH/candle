@@ -79,7 +79,7 @@ class _HomeState extends State<Home> {
               myFunc: () {
                 Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) =>  const BusTimming()),
+    MaterialPageRoute(builder: (context) =>  BusTimming()),
   );
               },
               height: 50.0,

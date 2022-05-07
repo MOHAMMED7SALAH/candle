@@ -37,7 +37,10 @@ class MyButton extends StatelessWidget {
               
               const Icon(Icons.arrow_back_ios),
               Text(myText,
+              textDirection: TextDirection.rtl,
+              textAlign: TextAlign.center,
               style: const TextStyle(
+                
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
