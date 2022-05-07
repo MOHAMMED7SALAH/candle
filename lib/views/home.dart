@@ -2,19 +2,16 @@ import 'package:candle/utils/widgets/mybutton.dart';
 import 'package:candle/utils/widgets/widget/mydrawer.dart';
 import 'package:candle/views/bus_timming.dart';
 import 'package:candle/views/demands.dart';
+import 'package:candle/views/exam.dart';
 import 'package:candle/views/papier.dart';
 import 'package:candle/views/univ.clubs.dart';
 import 'package:candle/views/websites_university.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+   Home({Key? key}) : super(key: key);
 
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
+ 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -105,7 +102,7 @@ class _HomeState extends State<Home> {
               myFunc: () {
                 Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) =>  const MyPapier()),
+    MaterialPageRoute(builder: (context) =>  MyPapier()),
   );
               },
               height: 50.0,
@@ -128,7 +125,13 @@ class _HomeState extends State<Home> {
             height: 20,
           ),
           MyButton(
-              myFunc: () {},
+              myFunc: () {
+ Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) =>  Exams()),
+  );
+                
+              },
               height: 50.0,
               width: (width * .8),
               myText: 'اسئلة الامتحانات السابقة'),

@@ -9,14 +9,10 @@ import 'package:flutter/material.dart';
 //             width: size.width,
 //             child: Image.asset('assets/shape.png', fit: BoxFit.fill,),
 //           ),
-class MyPapier extends StatefulWidget {
-  const MyPapier({Key? key}) : super(key: key);
+class MyPapier extends StatelessWidget {
+   MyPapier({Key? key}) : super(key: key);
 
-  @override
-  State<MyPapier> createState() => _MyPapierState();
-}
-
-class _MyPapierState extends State<MyPapier> {
+  
   List<Papier> papier = [
     Papier(
         papierName: 'ملف المنحة',

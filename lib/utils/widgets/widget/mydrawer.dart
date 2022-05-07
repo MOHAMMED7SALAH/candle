@@ -1,3 +1,4 @@
+import 'package:candle/views/about_us.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -32,9 +33,15 @@ class MyDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
+            
             title: const Text('حولنا'),
             leading: const Icon(Icons.info_outline,color: Colors.black,),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const AboutUs()),
+  );
+            },
           ),
         ],
       ),

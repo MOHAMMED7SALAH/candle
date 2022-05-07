@@ -1,15 +1,11 @@
 import 'package:candle/utils/widgets/widget/mydrawer.dart';
 import 'package:flutter/material.dart';
  
-class WebSites extends StatefulWidget {
+class WebSites extends StatelessWidget {
   
   WebSites({Key? key, }) : super(key: key);
 
-  @override
-  State<WebSites> createState() => _WebSitesState();
-}
-
-class _WebSitesState extends State<WebSites> {
+  
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {

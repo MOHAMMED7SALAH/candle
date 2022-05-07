@@ -1,15 +1,11 @@
 import 'package:candle/utils/widgets/widget/mydrawer.dart';
 import 'package:flutter/material.dart';
  
-class Club extends StatefulWidget {
+class Club extends StatelessWidget {
   
   Club({Key? key, }) : super(key: key);
 
-  @override
-  State<Club> createState() => _ClubState();
-}
-
-class _ClubState extends State<Club> {
+  
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {

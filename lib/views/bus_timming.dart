@@ -1,11 +1,12 @@
 import 'package:candle/utils/widgets/mybutton.dart';
+import 'package:candle/utils/widgets/widget/mydrawer.dart';
 import 'package:candle/views/bus_page.dart';
 import 'package:flutter/material.dart';
 
 class BusTimming extends StatelessWidget {
   BusTimming({Key? key}) : super(key: key);
-  
 
+  
   List<Buses> buses = [
     Buses(busName: 'busName', busImage: "busImage"),
     Buses(busName: 'busName', busImage: "busImage"),
@@ -45,13 +46,15 @@ class BusTimming extends StatelessWidget {
         busImage: 'assets/wad11.png'),
     Buses(busName: 'توقيت ومسار حافلة تهقارت', busImage: 'assets/tahagart.png'),
   ];
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      endDrawer: const Drawer(),
+
+      key: _scaffoldKey,
+      endDrawer: MyDrawer(),
       
       body: Container(
         height: size.height,
@@ -69,8 +72,8 @@ class BusTimming extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final bus = buses[index];
                     if (index == 0 || index == 1 || index == 2) {
-                      return const SizedBox(
-                        height: 30,
+                      return  SizedBox(
+                        height: size.height * .05,
                       );
                     } else {
                       return Column(
@@ -120,11 +123,9 @@ class BusTimming extends StatelessWidget {
                               color: Colors.white,
                             ),
                           ),
-                          // const Spacer(),
                           IconButton(
                               onPressed: () {
-                                return _scaffoldKey.currentState
-                                    ?.openEndDrawer();
+                                return _scaffoldKey.currentState?.openEndDrawer();
                               },
                               icon: const Icon(
                                 Icons.menu,
