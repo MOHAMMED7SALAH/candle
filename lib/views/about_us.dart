@@ -12,7 +12,7 @@ class AboutUs extends StatelessWidget {
         height: size.height ,
         width: size.width,
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('assets/ui.png'))
+          image: DecorationImage(image: AssetImage('assets/ui.png',), fit: BoxFit.cover)
         ),
         child: Stack(
         children: [

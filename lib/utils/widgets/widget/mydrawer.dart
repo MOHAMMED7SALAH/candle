@@ -1,4 +1,5 @@
 import 'package:candle/views/about_us.dart';
+import 'package:candle/views/home.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -30,7 +31,12 @@ class MyDrawer extends StatelessWidget {
             
             title: const Text('الرئيسية'),
             leading: const Icon(Icons.home_rounded, color: Colors.black,),
-            onTap: () {},
+            onTap: () {
+               Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) =>  Home()),
+  );
+            },
           ),
           ListTile(
             
